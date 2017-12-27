@@ -11,4 +11,8 @@ Installation:
 - Download and save the "accord.plugin.js" file to "%APPDATA%\BetterDiscord\plugins".
 - Reload discord.
 
-Other themes and plugins: https://betterdocs.net/
+BetterDiscord plugins, themes, and documentation: 
+- https://betterdocs.net/
+- https://betterdocs.net/documentation/
+- https://betterdocs.net/plugins.html
+- https://betterdocs.net/themes.html
