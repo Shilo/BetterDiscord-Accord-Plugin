@@ -1,5 +1,5 @@
 # BetterDiscord Accord Plugin
-Accord is a BetterDiscord plugin that brings harmony to Discord by seamlessly integrating necessary and helpful features.
+"Accord" is a BetterDiscord plugin that brings harmony to Discord by seamlessly integrating necessary and helpful features.
 Toggle sidebars, toggle window "always on top" mode, and resize window smaller.
 
 Requires the following:
