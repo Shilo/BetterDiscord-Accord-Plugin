@@ -53,7 +53,6 @@ Accord.prototype.start = function() {
 Accord.prototype.setupMainWindow = function() {
     var settingsWindowMinimumWidth = this.getSetting("windowMinimumWidth");
     var settingsWindowMinimumHeight = this.getSetting("windowMinimumHeight");
-    console.log("load settingsWindowMinimumWidth:"+ settingsWindowMinimumWidth + " settingsWindowMinimumHeight:"+ settingsWindowMinimumHeight);
 
     this.mainWindow = require('electron').remote.getCurrentWindow();
     this.mainWindow.setMinimumSize(parseInt(settingsWindowMinimumWidth), parseInt(settingsWindowMinimumHeight));
@@ -410,46 +409,6 @@ Accord.prototype.setSetting = function(key, value, reload=false) {
     bdPluginStorage.set(this.getName().toLowerCase(), key, JSON.stringify(value));
     if (reload) this.reload();
 };
-
-/*
-Accord.prototype.loadSettings = function() {
-    var config = bdPluginStorage.get(this.getName().toLowerCase(), 'config');
-    alert(config);
-    var settings = config ? JSON.parse(config) : {version:"0"};
-    alert(settings);
-    if(settings.version != this.defaultSettings.version) {
-        console.log('['+this.getName()+'] Settings were outdated/invalid/nonexistent. Using default settings.');
-        settings = this.defaultSettings();
-        bdPluginStorage.set(this.getName().toLowerCase(), 'config', JSON.stringify(settings));
-    }
-    return settings;
-};
-
-Accord.prototype.saveSettings = function() {
-    var settings = this.loadSettings();
-    //settings.sidebarToggleButtonPosition = 
-
-    bdPluginStorage.set(this.getName().toLowerCase(), 'config', JSON.stringify(settings));
-
-    this.reload();
-
-    if (!this.jsonEquals(settings, this.defaultSettings)) {
-        alert('settings changed');
-        var accordResetSettingsButton = $(".accordResetSettingsButton");
-        if (accordResetSettingsButton) accordResetSettingsButton.prop("disabled", false);
-    }
-};
-
-
-Accord.prototype.resetSettings = function () {
-    var settings = this.defaultSettings;
-    bdPluginStorage.set(this.getName().toLowerCase(), 'config', JSON.stringify(settings));
-    this.reload();
-
-    var accordResetSettingsButton = $(".accordResetSettingsButton");
-    if (accordResetSettingsButton) accordResetSettingsButton.prop("disabled", true);
-};
-*/
 
 Accord.prototype.getName = function() {
     return "Accord";
