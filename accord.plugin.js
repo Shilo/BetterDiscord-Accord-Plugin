@@ -28,6 +28,7 @@ var sidebarToggleButton = null;
 var alwaysOnTopButton = null;
 var channelMembersBarToggleButton = null;
 var channelMembersBarHidden = false;
+var winButtonMinMaxClassValue = "";
 
 var Accord = function() {};
 
@@ -44,6 +45,8 @@ Accord.prototype.defaultSettings = {
 };
 
 Accord.prototype.start = function() {
+    winButtonMinMaxClassValue = $("[class|='winButtonMinMax']").attr("class");
+
     this.setupMainWindow();
     this.loadAlwaysOnTopButton();
     this.loadChannelMembersBarToggleButton();
@@ -73,7 +76,7 @@ Accord.prototype.loadSidebarToggleButton = function() {
     channels = $("[class^='channels-']");
 
     sidebarToggleButton = $($.parseHTML(`
-        <div class="accordSidebarToggleButton winButtonMinMax-bT_gQ1 winButton-U7zAqI center-1MLNrE flex-3B1Tl4 justifyCenter-29N31w alignCenter-3VxkQP" 
+        <div class="accordSidebarToggleButton ` + winButtonMinMaxClassValue + `"
             title="Toggle sidebars" 
             style="` + positionStyle + `">
             <svg width="16" height="16" viewBox="0 0 20 20">
@@ -134,7 +137,7 @@ Accord.prototype.loadAlwaysOnTopButton = function() {
     var activeButtonStyle = "opacity:1.0; background-color: rgba(0, 255, 0, 0.25)";
 
     alwaysOnTopButton = $($.parseHTML(`
-        <div class="accordAlwaysOnTopButton winButtonMinMax-bT_gQ1 winButton-U7zAqI center-1MLNrE flex-3B1Tl4 justifyCenter-29N31w alignCenter-3VxkQP" 
+        <div class="accordAlwaysOnTopButton ` + winButtonMinMaxClassValue + `"
             title="Toggle always on top mode"
             style="` + (this.mainWindow.isAlwaysOnTop() ? activeButtonStyle : "") + `">
             <svg width="16" height="16" viewBox="0 0 20 20">
@@ -174,7 +177,7 @@ Accord.prototype.loadChannelMembersBarToggleButton = function() {
     var activeButtonStyle = "opacity:1.0; background-color: rgba(255, 0, 0, 0.25)";
 
     channelMembersBarToggleButton = $($.parseHTML(`
-        <div class="accordChannelMembersBarToggleButton winButtonMinMax-bT_gQ1 winButton-U7zAqI center-1MLNrE flex-3B1Tl4 justifyCenter-29N31w alignCenter-3VxkQP" 
+        <div class="accordChannelMembersBarToggleButton ` + winButtonMinMaxClassValue + `"
             title="Toggle channel members sidebar" 
             style="` + (channelMembersBarHidden ? activeButtonStyle : "") + `">
             <svg width="16" height="16" viewBox="0 0 20 20">
